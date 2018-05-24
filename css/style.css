@@ -1,0 +1,20 @@
+/*--------------------------------------------------------------
+# WordPress Category Custom Fields Styles
+--------------------------------------------------------------*/
+
+/* Admin style */
+.wpccf-video-selector-preview,
+.wpccf-image-selector-preview {
+    display: block;
+    margin-top: 20px;
+}
+.wpccf-image-selector-preview img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* General style */
+.wpccf-category-featured-video,
+.wpccf-category-featured-image {
+    margin: 20px 0;
+}
