@@ -99,7 +99,7 @@ class WP_CategoryCFields {
             . ((int) $cat_id > 0 ? '<td valign="top">' : '<div>');
 
         // Input with image ID
-        $cat_img_id = $cat_id > 0 ? get_term_meta ( $cat->term_id, 'image', true ) : '';
+        $cat_img_id = $cat_id > 0 ? get_term_meta ( $cat->term_id, 'wpccf_image', true ) : '';
         ?><input type="hidden" id="wpccf-category-image" class="wpccf-image-selector-field" name="wpccf_category_image" value="<?php
         echo $cat_img_id; ?>"><?php
 
@@ -125,7 +125,7 @@ class WP_CategoryCFields {
             . ((int) $cat_id > 0 ? '<td valign="top">' : '<div>');
 
         // Input with image URL
-        $cat_video_url = $cat_id > 0 ? get_term_meta ( $cat->term_id, 'video', true ) : '';
+        $cat_video_url = $cat_id > 0 ? get_term_meta ( $cat->term_id, 'wpccf_video', true ) : '';
         ?><input type="url" id="wpccf-category-video" class="wpccf-video-selector-field" name="wpccf_category_video" value="<?php
         echo $cat_video_url; ?>"><?php
 
@@ -155,12 +155,12 @@ class WP_CategoryCFields {
 
         //Save image if it is present
         if (isset($_POST['wpccf_category_image'])) {
-            update_term_meta($term_id, 'image', $_POST['wpccf_category_image']);
+            update_term_meta($term_id, 'wpccf_image', $_POST['wpccf_category_image']);
         }
 
         //Save video if it is present
         if (isset($_POST['wpccf_category_video'])) {
-            update_term_meta($term_id, 'video', $_POST['wpccf_category_video']);
+            update_term_meta($term_id, 'wpccf_video', $_POST['wpccf_category_video']);
         }
     }
 
@@ -175,7 +175,7 @@ class WP_CategoryCFields {
             $cat = get_the_category();
 
             //Check if image is present
-            $cat_img_id = get_term_meta($cat[0]->term_id, 'image', true);
+            $cat_img_id = get_term_meta($cat[0]->term_id, 'wpccf_image', true);
             if ($cat_img_id) {
 
                 //Show image
@@ -185,7 +185,7 @@ class WP_CategoryCFields {
             }
 
             //Check if video is present
-            $cat_video_url = get_term_meta ($cat[0]->term_id, 'video', true );
+            $cat_video_url = get_term_meta ($cat[0]->term_id, 'wpccf_video', true );
             if ( $cat_video_url ) {
 
                 //Show video
